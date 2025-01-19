@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Subscription</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Daily Subscription Packages</h1>
+        </div>
+        <div class="packages">
+            <div class="package-card">
+                <h3>1 day</h3>
+                <p>Unlimited internet for 1 hour at <strong>KSH 10</strong></p>
+                <button class="btn" onclick="subscribe('1 Hour')">Connect Now</button>
+            </div>
+            <div class="package-card">
+                <h3>3 days</h3>
+                <p>Unlimited internet for 2 hours at <strong>KSH 20</strong></p>
+                <button class="btn" onclick="subscribe('2 Hours')">Connect Now</button>
+            </div>
+            <div class="package-card">
+                <h3>7 days</h3>
+                <p>Unlimited internet for 3 hours at <strong>KSH 30</strong></p>
+                <button class="btn" onclick="subscribe('3 Hours')">Connect Now</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function subscribe(packageType) {
+            alert(`You have selected the ${packageType} subscription!`);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotnet Registration</title>
+    <link rel="stylesheet" href="reg.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Register</h2><hr>
+            <form action="#" method="POST">
+                <label for="reg-email">Email (Username)</label>
+                <input type="email" id="reg-email" name="reg-email" placeholder="Enter your email" required>
+
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+
+                <label for="reg-password">Password</label>
+                <div class="password-container">
+                    <input type="password" id="reg-password" name="reg-password" placeholder="Enter your password" required>
+                    <span class="toggle-password" onclick="togglePassword('reg-password')">👁️</span>
+                </div>
+
+                <label for="confirm-password">Confirm Password</label>
+                <div class="password-container">
+                    <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password" required>
+                    <span class="toggle-password" onclick="togglePassword('confirm-password')">👁️</span>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="reg-agree" required>
+                    <label for="reg-agree">I agree to the <a href="#">terms and conditions</a></label>
+                </div>
+
+                <button type="submit" class="btn">Register</button><br>
+                <a href="login.html" class="terms">Already have an account? login </a>
+                <button class="google-btn">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAcBJREFUSEvV1U2IT1EYBvDfLHzFZGFtISmikVn4KlkiWYopC6wsUWoWsiBJoSyt2PjKgiRWSrGZlTINISUrpimaaRqKGffVnTod9/7/J5rirdute57zPu/7nPc8t8ccR88c5/dPEPRjBzZhK7+KeoU3eIB7nVTo1MF8nMfRLjI+w158bMK1EazBnepZW3hGUchgKcFCvMCqhg2v8R0rEbiImziA6VKCSziWgL/hLK5gtP4+r0p4CtHpPvxo6zSXaDueJOAJbMC7Qql+g+UENzCQoA7j6p8mj305wRA21gnHsTRLvqga10ddCM/g8SwmJxjDsnoxxm9blmwJQrZOcQIX2gg+YPlfEsS9udxGcB976sUpLMZMUm6TRNHxugSzv5qu220Eod/JBHwI17pIchHHE8wKvG8jiMWXySX6gvUI6ZqiD3FWvfXiSNZNo5vGlT+XZPtcVXQQId9shE8dwels0mLEb6WVNHlR3NLnDT4URG+rCYlJCqtYkLX0ELvzNtvMbnUlzd2qmniXxFPswmQpQeBChpAqPcB8/1eEd4UvNfpRyR8tvGgntmBzffuH65/NdXzq1GIJQYlErZj/n+AnYyRHGa4JiQsAAAAASUVORK5CYII=" alt="Google Logo">
+                    Continue with Google
+                </button>
+            </form>
+    </div>
+    <script>
+        function togglePassword(id) {
+            const passwordInput = document.getElementById(id);
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+            } else {
+                passwordInput.type = "password";
+            }
+        }
+    </script>
+
+    
+</body>
+</html>
