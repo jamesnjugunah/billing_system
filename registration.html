@@ -50,7 +50,41 @@
                 passwordInput.type = "password";
             }
         }
-    </script>
+        
+    const form = document.querySelector('form');
+
+    form.addEventListener('submit', async (event) => {
+        event.preventDefault(); // Prevent form from reloading the page.
+
+        const formData = {
+            email: document.getElementById('reg-email').value,
+            phone: document.getElementById('phone').value,
+            password: document.getElementById('reg-password').value,
+            confirmPassword: document.getElementById('confirm-password').value,
+        };
+
+        try {
+            const response = await fetch('/api/register', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData),
+            });
+
+            const result = await response.json();
+            if (response.ok) {
+                alert('Registration successful!');
+                window.location.href = 'login.html';
+            } else {
+                alert(result.error || 'Registration failed.');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('An error occurred while registering.');
+        }
+    });
+
+
+</script>
 
     
 </body>
