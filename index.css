@@ -36,7 +36,6 @@
     position:absolute;
     left:30px;
     top: 0px;
-
 }
 .welcome h1 {
     font-size: 2.5rem;
@@ -303,6 +302,7 @@
     height: 40px;
     border-radius: 50%;
     margin-right: 10px;
+    border: 5px solid red;
 }
 
 .user-name {
@@ -326,12 +326,15 @@
 
 .user-modal-content {
     background-color: grey;
-    margin: 10% auto;
+    position:absolute;
+    right:10px;
+    top: 100px;
     animation: fadeIn 1s ease-in-out;
     padding: 20px;
     color:black;
     border-radius: 5px;
     width: 80%;
+    height:70%;
     max-width: 400px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: left;
