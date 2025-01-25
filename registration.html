@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <h2>Register</h2><hr>
-            <form action="#" method="POST">
+            <form method="POST" class="form" id="register-form">
                 <label for="reg-email">Email (Username)</label>
                 <input type="email" id="reg-email" name="reg-email" placeholder="Enter your email" required>
 
@@ -35,10 +35,7 @@
 
                 <button type="submit" class="btn">Register</button><br>
                 <a href="login.html" class="terms">Already have an account? login </a>
-                <button class="google-btn">
-                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAcBJREFUSEvV1U2IT1EYBvDfLHzFZGFtISmikVn4KlkiWYopC6wsUWoWsiBJoSyt2PjKgiRWSrGZlTINISUrpimaaRqKGffVnTod9/7/J5rirdute57zPu/7nPc8t8ccR88c5/dPEPRjBzZhK7+KeoU3eIB7nVTo1MF8nMfRLjI+w158bMK1EazBnepZW3hGUchgKcFCvMCqhg2v8R0rEbiImziA6VKCSziWgL/hLK5gtP4+r0p4CtHpPvxo6zSXaDueJOAJbMC7Qql+g+UENzCQoA7j6p8mj305wRA21gnHsTRLvqga10ddCM/g8SwmJxjDsnoxxm9blmwJQrZOcQIX2gg+YPlfEsS9udxGcB976sUpLMZMUm6TRNHxugSzv5qu220Eod/JBHwI17pIchHHE8wKvG8jiMWXySX6gvUI6ZqiD3FWvfXiSNZNo5vGlT+XZPtcVXQQId9shE8dwels0mLEb6WVNHlR3NLnDT4URG+rCYlJCqtYkLX0ELvzNtvMbnUlzd2qmniXxFPswmQpQeBChpAqPcB8/1eEd4UvNfpRyR8tvGgntmBzffuH65/NdXzq1GIJQYlErZj/n+AnYyRHGa4JiQsAAAAASUVORK5CYII=" alt="Google Logo">
-                    Continue with Google
-                </button>
+                
             </form>
     </div>
     <script>
@@ -50,41 +47,35 @@
                 passwordInput.type = "password";
             }
         }
-        
-    const form = document.querySelector('form');
-
+        const form = document.getElementById('register-form');
     form.addEventListener('submit', async (event) => {
-        event.preventDefault(); // Prevent form from reloading the page.
+    event.preventDefault();
 
-        const formData = {
-            email: document.getElementById('reg-email').value,
-            phone: document.getElementById('phone').value,
-            password: document.getElementById('reg-password').value,
-            confirmPassword: document.getElementById('confirm-password').value,
-        };
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirmPassword').value;
 
-        try {
-            const response = await fetch('/api/register', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData),
-            });
-
-            const result = await response.json();
-            if (response.ok) {
-                alert('Registration successful!');
-                window.location.href = 'login.html';
-            } else {
-                alert(result.error || 'Registration failed.');
-            }
-        } catch (error) {
-            console.error('Error:', error);
-            alert('An error occurred while registering.');
-        }
+    const response = await fetch('/api/register', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, phone, password, confirmPassword }),
     });
 
-
+    const data = await response.json();
+    if (response.ok) {
+        alert(data.message); // Registration success
+        window.location.href = data.redirect; // Redirect to login page
+    } else {
+        alert(data.error); // Show error message
+    }
+});
+        
+    
 </script>
+
 
     
 </body>
